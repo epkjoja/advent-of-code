@@ -2,7 +2,7 @@ package se.joja.aoc.year2019
 
 import scala.io.Source
 
-import se.joja.joja.getInput
+import se.joja.aoc.getInput
 
 object Day1 extends App {
   val input = getInput("2019/day1.txt").map(_.toInt)

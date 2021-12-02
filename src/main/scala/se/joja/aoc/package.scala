@@ -4,15 +4,15 @@ import scala.annotation.tailrec
 import scala.io.Source
 import scala.util.{Success, Try}
 
-package object joja {
+package object aoc {
 
   def getInput(file: String): List[String] =
     Source.fromResource(file).getLines().toList
 
   def splitOnEmptyLine(in: List[String]): List[List[String]] =
     in.foldLeft(List(List.empty[String])) { (acc, line) =>
-      if (line.isBlank) acc :+ List.empty else acc.init :+ (acc.last :+ line)
-    }
+        if (line.isBlank) acc :+ List.empty else acc.init :+ (acc.last :+ line)
+      }
       .filterNot(_.isEmpty)
 
   def groupInputOnStarting[A](input: List[A])(f: A => Boolean): List[List[A]] =
@@ -33,15 +33,15 @@ package object joja {
   }
 
   /**
-   * greatest common divisor
-   */
+    * greatest common divisor
+    */
   @tailrec
   def gcd(a: Long, b: Long): Long = if (b == 0) a.abs else gcd(b, a % b)
 
   /**
-   * least common multiple
-   */
-  def lcm(a: Long, b: Long): Long = a * (b / gcd(a, b))
+    * least common multiple
+    */
+  def lcm(a: Long, b: Long): Long   = a * (b / gcd(a, b))
   def lcm(numbers: Seq[Long]): Long = numbers.reduce(lcm)
 
   /**

@@ -1,6 +1,6 @@
 package se.joja.aoc.year2020
 
-import se.joja.joja.getInput
+import se.joja.aoc.getInput
 import org.parboiled.scala._
 import org.parboiled.errors.{ErrorUtils, ParsingException}
 

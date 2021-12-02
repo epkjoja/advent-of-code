@@ -1,7 +1,7 @@
 package se.joja.aoc.year2020
 
 import se.joja.aoc.year2020.Day21_cheat.Food
-import se.joja.joja.getInput
+import se.joja.aoc.getInput
 
 object Day21 extends App {
 

@@ -1,6 +1,6 @@
 package se.joja.aoc.year2020
 
-import se.joja.joja.{chineseRemainder, getInput}
+import se.joja.aoc.{chineseRemainder, getInput}
 
 object Day13 extends App {
 

@@ -1,6 +1,6 @@
 package se.joja.aoc.year2020
 
-import se.joja.joja.getInput
+import se.joja.aoc.getInput
 
 object Day21_cheat {
 

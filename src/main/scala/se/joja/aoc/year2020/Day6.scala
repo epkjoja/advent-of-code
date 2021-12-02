@@ -2,7 +2,7 @@ package se.joja.aoc.year2020
 
 import scala.io.Source
 
-import se.joja.joja._
+import se.joja.aoc._
 
 object Day6 extends App {
 

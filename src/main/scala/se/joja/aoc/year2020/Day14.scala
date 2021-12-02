@@ -1,7 +1,7 @@
 package se.joja.aoc.year2020
 
 import breeze.numerics.pow
-import se.joja.joja.{getInput, groupInputOnStarting}
+import se.joja.aoc.{getInput, groupInputOnStarting}
 
 object Day14 extends App {
 

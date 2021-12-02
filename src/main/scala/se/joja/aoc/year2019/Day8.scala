@@ -1,6 +1,6 @@
 package se.joja.aoc.year2019
 
-import se.joja.joja.{getInput, invertMap}
+import se.joja.aoc.{getInput, invertMap}
 
 object Day8 extends App {
   val input = getInput("2019/day8.txt")

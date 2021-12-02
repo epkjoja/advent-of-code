@@ -1,6 +1,6 @@
 package se.joja.aoc.year2019
 
-import se.joja.joja.getInput
+import se.joja.aoc.getInput
 
 import java.util.concurrent.{Executors, LinkedTransferQueue}
 import scala.annotation.tailrec

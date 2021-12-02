@@ -1,6 +1,6 @@
 package se.joja.aoc.year2019
 
-import se.joja.joja.{getInput, invertMap}
+import se.joja.aoc.{getInput, invertMap}
 
 import scala.annotation.tailrec
 

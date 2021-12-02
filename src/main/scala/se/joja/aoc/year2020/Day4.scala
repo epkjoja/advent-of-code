@@ -2,7 +2,7 @@ package se.joja.aoc.year2020
 
 import scala.io.Source
 
-import se.joja.joja.splitOnEmptyLine
+import se.joja.aoc.splitOnEmptyLine
 
 object Day4 extends App {
 

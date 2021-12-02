@@ -1,6 +1,6 @@
 package se.joja.aoc.year2020
 
-import se.joja.joja._
+import se.joja.aoc._
 
 object Day7 extends App {
 
