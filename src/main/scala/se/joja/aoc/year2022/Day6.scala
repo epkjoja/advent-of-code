@@ -1,6 +1,6 @@
 package se.joja.aoc.year2022
 
-import se.joja.aoc.{getInput, splitOnEmptyLine}
+import se.joja.aoc.getInput
 
 object Day6 extends App {
 
