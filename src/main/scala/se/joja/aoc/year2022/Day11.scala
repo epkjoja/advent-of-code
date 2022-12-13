@@ -30,15 +30,11 @@ object Day11 extends App {
       case ("+", Some(c)) => _ + c
       case ("+", None)    => _ * 2
       case ("-", Some(c)) => _ - c
-      case ("-", None) =>
-        _ =>
-          0
+      case ("-", None)    => _ => 0
       case ("*", Some(c)) => _ * c
-      case ("*", None) =>
-        i =>
-          i * i
+      case ("*", None)    => i => i * i
       case ("/", Some(c)) => _ / c
-      case ("/", None)    => ???
+      case ("/", None)    => _ => 1
     }
 
   val monkeys = inputBlocks.map { block =>
