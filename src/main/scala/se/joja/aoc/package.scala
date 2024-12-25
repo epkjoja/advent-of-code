@@ -9,6 +9,11 @@ package object aoc {
   def getInput(file: String): List[String] =
     Source.fromResource(file).getLines().toList
 
+  def readInput(year: Int, day: Int, test: Boolean = false): List[String] = {
+    val path = if (!test) s"$year/day$day.txt" else s"$year/day$day.test.txt"
+    getInput(path)
+  }
+
   def splitOnEmptyLine(in: List[String]): List[List[String]] =
     in.foldLeft(List(List.empty[String])) { (acc, line) =>
         if (line.isBlank) acc :+ List.empty else acc.init :+ (acc.last :+ line)

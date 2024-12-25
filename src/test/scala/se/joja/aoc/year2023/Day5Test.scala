@@ -6,7 +6,7 @@ import se.joja.aoc.year2023.Day5.Mapping
 
 import scala.language.postfixOps
 
-class Year2023Day5Test extends AnyFlatSpec with should.Matchers {
+class Day5Test extends AnyFlatSpec with should.Matchers {
 
   it should "work with non overlapping mappings" in {
     Mapping(5, 10, 1).combine(Mapping(15, 20, 2)) shouldEqual(

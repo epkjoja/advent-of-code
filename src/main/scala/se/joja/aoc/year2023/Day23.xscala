@@ -1,0 +1,74 @@
+package se.joja.aoc.year2023
+
+import se.joja.aoc.readInput
+import se.joja.aoc.util.Point
+
+import scala.annotation.tailrec
+
+object Day23 extends App {
+
+  val input = readInput(2023, 23)
+
+  sealed abstract class Tile(p: Point) extends Product with Serializable
+  case class Path(p: Point, nexts: List[Point]) extends Tile(p)
+  case class Slope(p: Point, dir: Char, next: Point) extends Tile(p)
+  case class Start(p: Point, next: Point) extends Tile(p)
+  case class End(p: Point) extends Tile(p)
+
+  val (top, bottom) = (0, input.length - 1)
+
+  val tiles = input.zipWithIndex.flatMap { case (l, x) =>
+    l.zipWithIndex.collect {
+      case (c, y) if Seq('.', '>', 'v', '<', '^') .contains(c) => (Point(x, y), c)
+    }.toList
+  }
+
+  val map = tiles.map { case (p, c) =>
+    val nexts = p.neighbours4.filter(p => tiles.exists(t => t._1 == p))
+    val tile = c match {
+      case '.' if p.x == top => Start(p, nexts.head)
+      case '.' if p.x == bottom => End(p)
+      case '.' => Path(p, nexts.filter(_.x != top))
+      case '>' => Slope(p, '>', p.copy(y = p.y + 1))
+      case 'v' => Slope(p, 'v', p.copy(x = p.x + 1))
+      case '<' => Slope(p, '<', p.copy(y = p.y - 1))
+      case '^' => Slope(p, '^', p.copy(x = p.x - 1))
+    }
+    p -> tile
+  }.toMap
+
+  case class Hike(path: List[Point]) {
+    def add(p: Point): Hike = Hike(path :+ p)
+    def isVisited(p: Point): Boolean = path.contains(p)
+  }
+
+  def findHikes(p: Point): List[Hike] = {
+
+    @tailrec
+    def tailRecHelper(ps: List[Point], currHike: Hike = Hike(List.empty)): List[List[Hike]] = {
+      ps.filterNot(currHike.isVisited).map { op =>
+        map.get(op) match {
+          case Some(Start(_, next)) => tailRecHelper(List(next), currHike.add(op))
+          case Some(End(_)) => List(currHike.add(p))
+          case Some(Path(_, nexts)) => tailRecHelper(nexts, currHike.add(p)))
+          case Some(Slope(_, _, next)) => tailRecHelper(List(next), currHike.add(p))
+          case None => List.empty
+        }
+      }
+    }
+
+    tailRecHelper(List(p)).flatten
+  }
+
+  val start = map.collectFirst { case (_, Start(p, _)) => p }.get
+  val result1 = findHikes(start).map(h => h.path.length - 1 -> h).mkString("\n")
+
+  println(s"Result part 1: $result1")
+
+  // Part 2
+
+  val result2 = ""
+
+  println(s"Result part 2: $result2")
+}
+
